@@ -1,10 +1,10 @@
+use serde::{Deserialize, Serialize};
 use std::error::Error;
 use std::fs::File;
 use std::io::prelude::*;
+use std::mem::size_of;
 use std::path::Path;
 use std::vec;
-use std::mem::size_of;
-use serde::{Serialize, Deserialize};
 
 /// Split R, G, B planes in RGB24 file.
 /// * `url` - Path to RGB24 file
@@ -188,7 +188,7 @@ pub fn rgb24_to_yuv420(
     Ok(())
 }
 
-pub fn rgb24_colorbar(width: usize, height:usize, url_out: &str) -> Result<(), Box<dyn Error>> {
+pub fn rgb24_colorbar(width: usize, height: usize, url_out: &str) -> Result<(), Box<dyn Error>> {
     let color = [
         [255, 255, 255],
         [255, 255, 0],
