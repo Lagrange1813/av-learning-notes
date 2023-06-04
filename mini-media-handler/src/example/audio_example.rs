@@ -12,4 +12,12 @@ pub fn run() {
         Ok(_) => (),
         Err(err) => println!("Error: pcm16le_split {:?}", err),
     }
+
+    match audio::pcm16le_halfvolumeleft(
+        &format!("{}NocturneNo2inEflat_44.1k_s16le.pcm", INPUT_DIR),
+        OUTPUT_DIR,
+    ) {
+        Ok(_) => (),
+        Err(err) => println!("Error: pcm16le_halfvolumeleft {:?}", err),
+    }
 }

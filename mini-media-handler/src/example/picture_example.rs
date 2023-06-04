@@ -7,7 +7,7 @@ const OUTPUT_DIR: &str = "output/";
 /// Run examples of picture module
 pub fn run() {
     match yuv::yuv420_split(
-        &format!("{}{}", INPUT_DIR, "lena_256x256_yuv420p.yuv"),
+        &format!("{}lena_256x256_yuv420p.yuv", INPUT_DIR),
         256,
         256,
         1,
@@ -17,7 +17,7 @@ pub fn run() {
     };
 
     match yuv::yuv444_split(
-        &format!("{}{}", INPUT_DIR, "lena_256x256_yuv444p.yuv"),
+        &format!("{}lena_256x256_yuv444p.yuv", INPUT_DIR),
         256,
         256,
         1,
@@ -27,7 +27,7 @@ pub fn run() {
     };
 
     match yuv::yuv420_grey(
-        &format!("{}{}", INPUT_DIR, "lena_256x256_yuv420p.yuv"),
+        &format!("{}lena_256x256_yuv420p.yuv", INPUT_DIR),
         256,
         256,
         1,
@@ -37,7 +37,7 @@ pub fn run() {
     }
 
     match yuv::yuv420_halfy(
-        &format!("{}{}", INPUT_DIR, "lena_256x256_yuv420p.yuv"),
+        &format!("{}lena_256x256_yuv420p.yuv", INPUT_DIR),
         256,
         256,
         1,
@@ -47,7 +47,7 @@ pub fn run() {
     }
 
     match yuv::yuv420_border(
-        &format!("{}{}", INPUT_DIR, "lena_256x256_yuv420p.yuv"),
+        &format!("{}lena_256x256_yuv420p.yuv", INPUT_DIR),
         256,
         256,
         20,
@@ -63,15 +63,15 @@ pub fn run() {
         0,
         255,
         10,
-        &format!("{}{}", OUTPUT_DIR, "graybar_640x360.yuv"),
+        &format!("{}graybar_640x360.yuv", OUTPUT_DIR),
     ) {
         Ok(_) => (),
         Err(err) => println!("Error: yuv420_greybar {:?}", err),
     }
 
     match yuv::yuv420_psnr(
-        &format!("{}{}", INPUT_DIR, "lena_256x256_yuv420p.yuv"),
-        &format!("{}{}", INPUT_DIR, "lena_distort_256x256_yuv420p.yuv"),
+        &format!("{}lena_256x256_yuv420p.yuv", INPUT_DIR),
+        &format!("{}lena_distort_256x256_yuv420p.yuv", INPUT_DIR),
         256,
         256,
         1,
@@ -81,7 +81,7 @@ pub fn run() {
     }
 
     match rgb::rgb24_split(
-        &format!("{}{}", INPUT_DIR, "cie1931_500x500.rgb"),
+        &format!("{}cie1931_500x500.rgb", INPUT_DIR),
         500,
         500,
         1,
@@ -91,21 +91,21 @@ pub fn run() {
     }
 
     match rgb::rgb24_to_bmp(
-        &format!("{}{}", INPUT_DIR, "lena_256x256_rgb24.rgb"),
+        &format!("{}lena_256x256_rgb24.rgb", INPUT_DIR),
         256,
         256,
-        &format!("{}{}", OUTPUT_DIR, "output_lena.bmp"),
+        &format!("{}output_lena.bmp", OUTPUT_DIR),
     ) {
         Ok(_) => (),
         Err(err) => println!("Error: rgb24_to_bmp {:?}", err),
     }
 
     match rgb::rgb24_to_yuv420(
-        &format!("{}{}", INPUT_DIR, "lena_256x256_rgb24.rgb"),
+        &format!("{}lena_256x256_rgb24.rgb", INPUT_DIR),
         256,
         256,
         1,
-        &format!("{}{}", OUTPUT_DIR, "output_lena.yuv"),
+        &format!("{}output_lena.yuv", OUTPUT_DIR),
     ) {
         Ok(_) => (),
         Err(err) => println!("Error: rgb24_to_yuv420 {:?}", err),
@@ -114,7 +114,7 @@ pub fn run() {
     match rgb::rgb24_colorbar(
         640,
         360,
-        &format!("{}{}", OUTPUT_DIR, "colorbar_640x360.rgb"),
+        &format!("{}colorbar_640x360.rgb", OUTPUT_DIR),
     ) {
         Ok(_) => (),
         Err(err) => println!("Error: rgb24_colorbar {:?}", err),

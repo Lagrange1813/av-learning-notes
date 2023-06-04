@@ -188,6 +188,10 @@ pub fn rgb24_to_yuv420(
     Ok(())
 }
 
+/// Generate RGB24 colorbar file.
+/// * `width` - Width of colorbar
+/// * `height` - Height of colorbar
+/// * `url_out` - Path to output RGB24 file
 pub fn rgb24_colorbar(width: usize, height: usize, url_out: &str) -> Result<(), Box<dyn Error>> {
     let color = [
         [255, 255, 255],
